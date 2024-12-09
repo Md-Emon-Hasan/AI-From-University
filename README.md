@@ -1,4 +1,4 @@
-# AI-From-University 🎓💻
+# AI From University 🎓💻
 
 This repository contains academic projects, assignments, and exercises from my university coursework in Artificial Intelligence. It showcases various AI concepts, algorithms, and models implemented during the learning process, providing a practical approach to AI theories.
 
