@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Notification and Link Detection</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Fake Notification and Link Detection</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#classifier">Classifier</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section scroll-fade" id="about">
+        <div class="container">
+            <h1>Fake Notification and Link Detection</h1>
+            <p>Efficiently detect your Notification and link as spam or not spam with our advanced classifier.</p>
+            <a href="#classifier" class="btn-hero">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Classifier Section -->
+    <section id="classifier" class="container scroll-fade">
+        <h1>Classifier</h1>
+        <form method="POST" id="spam-form">
+            <div class="form-group">
+                <label class="label" for="message">Enter Your Notification/Link</label>
+                <textarea id="message" name="message" class="form-control" rows="5" placeholder="Type your message here..." required>{{ input_sms }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Detect Text</button>
+        </form>
+        <div id="result" class="alert">
+            {% if result %}
+            <h2>Your Notification/Link is: {{ result }}</h2>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
